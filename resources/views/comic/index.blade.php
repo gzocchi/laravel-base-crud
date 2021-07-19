@@ -6,7 +6,7 @@
 <section class="py-4">
     <h1 class="text-center text-underline my-3">Comic Detail</h1>
 
-    <table class="my-5 table table-striped">
+    <table class="my-5 table table-striped table-bordered">
         <thead class="table-dark text-uppercase">
           <tr>
             <th scope="col">Titolo</th>
@@ -21,13 +21,13 @@
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->series }}</td>
                     <td>{{ $item->type }}</td>
-                    <td class="text-uppercase">
+                    <td class="text-uppercase text-center">
                         <a href="{{ route("comic.show", $item->id) }}" class="btn btn-sm btn-outline-success">Show</a>
                     </td>
-                    <td class="text-uppercase">
+                    <td class="text-uppercase text-center">
                         <a href="{{ route("comic.edit", $item->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
                     </td>
-                    <td class="text-uppercase">
+                    <td class="text-uppercase text-center">
                         <a href="{{ route("comic.destroy", $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
