@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link {{ Route::currentRouteName() == 'comic.index' ? 'active' : '' }}" href="{{ route("comic.index") }}">Comic</a>
           </div>
         </div>
       </nav> 
