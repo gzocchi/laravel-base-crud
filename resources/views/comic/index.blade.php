@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page_title', 'Home | Comic Detail')
+@section('page_title', 'Comic Detail')
 
 @section('main_content')
 <section class="py-4">
