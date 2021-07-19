@@ -9,6 +9,7 @@
     <table class="mt-5 table table-striped table-bordered table-responsive-md">
         <thead class="table-dark text-uppercase">
           <tr>
+            <th scope="col">#</th>
             <th scope="col">Titolo</th>
             <th scope="col">Serie</th>
             <th scope="col">Tipo</th>
@@ -18,6 +19,7 @@
         <tbody>
             @foreach ($comics as $item)
                 <tr>
+                    <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->series }}</td>
                     <td>{{ $item->type }}</td>
