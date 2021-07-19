@@ -6,7 +6,7 @@
 <section class="py-4">
     <h1 class="text-center text-underline my-3">Comic Detail</h1>
 
-    <table class="my-5 table table-striped table-bordered">
+    <table class="my-5 table table-striped table-bordered table-responsive-md">
         <thead class="table-dark text-uppercase">
           <tr>
             <th scope="col">Titolo</th>
@@ -34,8 +34,11 @@
             @endforeach
         </tbody>
       </table>
+      <div class="pagination">
+          {{ $comics->links() }}
+      </div>
 
-      {{ $comics->links() }}
+      
     
 </section>
 @endsection
