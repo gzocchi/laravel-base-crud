@@ -3,10 +3,9 @@
 @section('page_title', 'Comic Detail')
 
 @section('main_content')
-<section class="py-4">
-    <h1 class="text-center text-underline my-3">Comic Detail</h1>
+<section class="comic_table">
 
-    <table class="mt-5 table table-striped table-bordered table-responsive-md">
+    <table class="my-3 table table-striped table-bordered table-responsive-md">
         <thead class="table-dark text-uppercase">
           <tr>
             <th scope="col">#</th>
@@ -36,7 +35,7 @@
             @endforeach
         </tbody>
       </table>
-      <div class="my_pagination mt-4">
+      <div class="my_pagination my-4">
           {{ $comics->links() }}
       </div>
 
