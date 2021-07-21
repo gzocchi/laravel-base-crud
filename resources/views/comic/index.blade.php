@@ -28,13 +28,13 @@
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->series }}</td>
                     <td>{{ $item->type }}</td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-uppercase text-center align-middle">
                         <a href="{{ route("comic.show", $item->id) }}" class="btn btn-sm btn-outline-success">Show</a>
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-uppercase text-center align-middle">
                         <a href="{{ route("comic.edit", $item->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-uppercase text-center align-middle">
                         <form 
                             action="{{ route('comic.destroy', $item->id) }}" method="POST"
                             onSubmit = "return confirm(`Cancellare definitivamente '{{ $item->title }}'?`)">

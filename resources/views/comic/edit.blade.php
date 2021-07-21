@@ -34,10 +34,11 @@
             </div>
         </div>
         
-
-        <div class="form-group my-5">
-            {{-- <label for="description"></label> --}}
-            <textarea class="form-control" id="description" name="description" placeholder="Descrizione del fumetto" rows="5" required>{{ $comic->description }}</textarea>
+        <div class="form-row my-4">
+            <div class="form-group col">
+                <label for="description">Descrizione</label>
+                <textarea class="form-control" id="description" name="description" placeholder="Descrizione del fumetto" rows="5" required>{{ $comic->description }}</textarea>
+            </div>
         </div>
 
         <div class="form-row">
