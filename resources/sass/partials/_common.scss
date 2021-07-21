@@ -3,6 +3,10 @@ body {
     font-family: $font_general;
 }
 
+.my_carousel.carousel-inner{
+    border-radius: 5px;
+    overflow: hidden;
+}
 .my_caption.carousel-caption {
     border-radius: 5px;
     background-color: hsla(0, 0%, 100%, 0.5);

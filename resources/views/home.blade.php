@@ -7,7 +7,7 @@
     <h1 class="text-center my-3">Home Page | laravel-base-crud</h1>
    
     <div id="carouselExampleControls" class="carousel slide col-md-4 offset-md-4 my-4" data-ride="carousel" data-interval="3000">
-        <div class="carousel-inner">
+        <div class="my_carousel carousel-inner">
 
           @foreach ($comicSelect as $item)
 

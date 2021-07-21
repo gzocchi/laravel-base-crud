@@ -44,7 +44,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="sale_date">Data di vendita</label>
-                <input type="text" class="form-control" id="sale_date" placeholder="AAAA-MM-GG" name="sale_date" value="{{ $comic->sale_date }}">
+                <input type="date" class="form-control" id="sale_date" name="sale_date" value="{{ $comic->sale_date }}">
             </div>
         </div>
 
