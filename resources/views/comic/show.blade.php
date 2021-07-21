@@ -1,13 +1,19 @@
 @extends('layouts.main')
 
-@section('page_title', 'Detail')
+@section('page_title', 'Comic | Detail')
 
 @section('main_content')
 <section class="py-4">
 
+    @if (session('message'))
+        <div class="alert alert-success mb-4">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <div class="row my-2">
         <div class="col-sm-12 col-md-3 text-center mb-3">
-            <img src="{{ $comic->thumb }}" alt="{{ $comic->slug }}">
+            <img src="{{ $comic->thumb }}" alt="{{ $comic->slug }}" class="img-fluid">
         </div>
         <div class="col-sm-12 col-md-9">
 
@@ -25,8 +31,9 @@
     <p class="p-3">{{ $comic->description }}</p>
 
     <div class="text-center">
-        <a href="{{ route("comic.index") }}" class="btn btn-sm btn-info">Torna all'elenco</a>
+        <a href="{{ route("comic.index") }}" class="btn btn-sm btn-info text-uppercase">Index</a>
+        <a href="{{ route("comic.edit", $comic->id) }}" class="btn btn-sm btn-outline-info text-uppercase">Edit</a>
     </div>
-    
+
 </section>
 @endsection

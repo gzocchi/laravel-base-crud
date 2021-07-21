@@ -11,6 +11,7 @@
           <div class="navbar-nav">
             <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
             <a class="nav-link {{ Route::currentRouteName() == 'comic.index' ? 'active' : '' }}" href="{{ route("comic.index") }}">Comic</a>
+            <a class="nav-link {{ Route::currentRouteName() == 'comic.create' ? 'active' : '' }}" href="{{ route("comic.create") }}">New Comic</a>
           </div>
         </div>
       </nav> 

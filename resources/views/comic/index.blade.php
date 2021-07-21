@@ -1,9 +1,15 @@
 @extends('layouts.main')
 
-@section('page_title', 'Comic Detail')
+@section('page_title', 'Comic | Index')
 
 @section('main_content')
 <section class="comic_table">
+
+    @if (session('deleted'))
+        <div class="alert alert-danger">
+            {{ session('deleted') }}
+        </div>
+    @endif
 
     <table class="my-3 table table-striped table-bordered table-responsive-md">
         <thead class="table-dark text-uppercase">
@@ -29,17 +35,24 @@
                         <a href="{{ route("comic.edit", $item->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
                     </td>
                     <td class="text-uppercase text-center">
-                        <a href="{{ route("comic.destroy", $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                        <form 
+                            action="{{ route('comic.destroy', $item->id) }}" method="POST"
+                            onSubmit = "return confirm(`Cancellare definitivamente '{{ $item->title }}'?`)">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-sm btn-danger text-uppercase">Delete</button>
+
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
       </table>
+
       <div class="my_pagination my-4">
           {{ $comics->links() }}
       </div>
 
-      
-    
 </section>
 @endsection
