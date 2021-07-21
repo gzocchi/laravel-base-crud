@@ -5,8 +5,15 @@
 @section('main_content')
 <section class="py-4">
 
-    <h1 class="mb-1">Edit Comic - <span class="text-info">{{ $comic->title }}</span></h1>
-    <a href="{{ route("comic.show", $comic->id) }}" class="btn btn-sm btn-outline-success text-uppercase mb-4">Show</a>
+    <div class="row mb-4">
+        <div class="d-none d-md-block col-md-1">
+            <img src="{{ $comic->thumb }}" alt="{{ $comic->slug }}" class="img-fluid">
+        </div>
+        <div class="col-md-11">
+            <h1 class="mb-1">Edit Comic - <span class="text-info">{{ $comic->title }}</span></h1>
+            <a href="{{ route("comic.show", $comic->id) }}" class="btn btn-sm btn-outline-success text-uppercase">Show</a>
+        </div>
+    </div>
     
     <form action="{{ route('comic.update', $comic->id) }}" method="POST">
         @csrf
