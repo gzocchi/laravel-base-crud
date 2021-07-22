@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -38,10 +39,28 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->request->add(["slug" => Str::slug($request->get("title"), '-')]);
+        
         $data = $request->all();
-        $comic = new Comic();
 
-        $data["slug"] = Str::slug($data["title"], '-');
+        $request->validate(
+            [
+                'title' => 'required|max:60',
+                'series' => 'required|max:60',
+                'type' => 'required|max:30',
+                'thumb' => 'required|max:255',
+                'description' => 'required|max:65535',
+                'price' => 'required|numeric|min:0|max:9999.99',
+                'sale_date' => 'required|max:10',
+                'slug' => 'unique:comics|max:100'
+            ],
+            [
+                'slug.unique' => 'The "title" should be unique.',
+                'slug.max' => 'The title has too many characters',
+            ]
+        );
+        
+        $comic = new Comic();
 
         $comic->fill($data);
         $comic->save();
@@ -82,7 +101,29 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->request->add(["slug" => Str::slug($request->get("title"), '-')]);
+        
         $data = $request->all();
+
+        $request->validate(
+            [
+                'title' => 'required|max:60',
+                'series' => 'required|max:60',
+                'type' => 'required|max:30',
+                'thumb' => 'required|max:255',
+                'description' => 'required|max:65535',
+                'price' => 'required|numeric|min:0|max:9999.99',
+                'sale_date' => 'required|max:10',
+                'slug' => [
+                        Rule::unique('comics')->ignore($comic->id),
+                        'max:100'
+                    ]
+            ],
+            [
+                'slug.unique' => 'The "title" should be unique.',
+                'slug.max' => 'The title has too many characters'
+            ]
+        );
 
         $data["slug"] = Str::slug($data["title"], '-');
 

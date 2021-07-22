@@ -37,7 +37,7 @@
                     <td class="text-uppercase text-center align-middle">
                         <form 
                             action="{{ route('comic.destroy', $item->id) }}" method="POST"
-                            onSubmit = "return confirm(`Cancellare definitivamente '{{ $item->title }}'?`)">
+                            onSubmit = "return confirm(`Cancellare definitivamente '{{ addslashes($item->title) }}'?`)">
                             @csrf
                             @method('DELETE')
 

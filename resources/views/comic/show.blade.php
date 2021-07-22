@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <p class="p-3">{{ $comic->description }}</p>
+    <p class="p-3 text-justify">{{ $comic->description }}</p>
 
     <div class="text-center">
         <a href="{{ route("comic.index") }}" class="btn btn-sm btn-info text-uppercase">Index</a>
